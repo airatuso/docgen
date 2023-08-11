@@ -71,4 +71,4 @@ def generate_certificate(output_path, fio_text, program_text, number_text):
     c.save()
 
 # Вызываем функцию для генерации сертификата
-generate_certificate('release/final.pdf', 'Константинопольский Юлианн Иванович', 'Проектирование промышленных изделий в CAD/CAM системах', '12345')
+generate_certificate('[CAL] Release/final.pdf', 'Константинопольский Юлианн Иванович', 'Проектирование промышленных изделий в CAD/CAM системах', '12345')
