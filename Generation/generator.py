@@ -67,13 +67,15 @@ def generate_certificate(draw, fio_text, program_text, number_text):
     img_buf.seek(0)
     draw.drawImage(ImageReader(img_buf), 0, 0, width=11.69*inch, height=8.27*inch)  # Размер A4 в дюймах
 
+# Определите общее количество строк в таблице Excel
+total_rows = sheet.max_row
+
 # Создаем PDF документ формата А4 (горизонтальный)
 pdf_output_path = 'certificates.pdf'
 c = canvas.Canvas(pdf_output_path, pagesize=landscape(A4))
 
 # Генерируем сертификаты для каждой строки данных
-y_position = 0
-for row in range(2, 52):  # Первая строка содержит заголовки
+for row in range(2, total_rows + 1):  # Обходим все строки данных, начиная с второй строки
     fio_text = sheet.cell(row=row, column=1).value
     program_text = sheet.cell(row=row, column=2).value
     number_text = str(sheet.cell(row=row, column=3).value)
